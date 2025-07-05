@@ -1,0 +1,61 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>South Park 24/7 Stream</title>
+                <meta charset="UTF-8">
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    body {
+                        background: #000;
+                        overflow: hidden;
+                        font-family: Arial, sans-serif;
+                    }
+                    #player {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        border: none;
+                    }
+                    .status {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        color: white;
+                        background: rgba(0,0,0,0.7);
+                        padding: 10px;
+                        border-radius: 5px;
+                        z-index: 1000;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="status" id="status">Loading South Park Stream...</div>
+                <iframe id="player" 
+                        src="https://veplay.top/stream/3b146825-9e54-4e17-b96e-c172ced342ad" 
+                        allowfullscreen="true"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                        onload="document.getElementById('status').style.display='none'">
+                </iframe>
+                
+                <script>
+                    setTimeout(function() {
+                        document.getElementById('status').style.display = 'none';
+                    }, 5000);
+                    
+                    // Error handling
+                    window.addEventListener('error', function(e) {
+                        console.log('Error loading stream:', e);
+                        document.getElementById('status').innerHTML = 'Stream loading...';
+                    });
+                </script>
+            </body>
+            </html>
+            
